@@ -254,7 +254,7 @@ if __name__ == "__main__":
     commands = np.zeros(1, dtype=mo_cmds_dtype)[0]
     states = np.zeros(1, dtype=mo_states_dtype)[0]
 
-    commands['start'] = 1.0
+    commands['kill'] = 0.0
     zeroed = False
 
     psi = np.zeros((3, 1))
@@ -368,7 +368,7 @@ if __name__ == "__main__":
     commands['motor_2_duty'] = 0.0
     commands['motor_3_duty'] = 0.0
     time.sleep(0.25)
-    commands['start'] = 0.0
+    commands['kill'] = 1.0
     time.sleep(0.25)
     ser_dev.send_topic_data(101, commands)
     time.sleep(0.25)
